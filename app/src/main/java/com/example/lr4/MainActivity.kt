@@ -78,7 +78,15 @@ fun SeriesCalculatorScreen() {
                     return@Button
                 }
 
-                resultText = "Данные корректны, расчет готов к реализации."
+                var sum = 0.0
+                var currentDenominator = 1.0
+
+                for (i in 0..n) {
+                    currentDenominator *= (a + i)
+                    sum += 1.0 / currentDenominator
+                }
+
+                resultText = "Результат суммы: $sum"
             },
             modifier = Modifier.fillMaxWidth()
         ) {
