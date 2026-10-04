@@ -70,7 +70,15 @@ fun SeriesCalculatorScreen() {
 
         Button(
             onClick = {
-                // Логика расчета будет добавлена позже
+                val n = nInput.toIntOrNull()
+                val a = aInput.toDoubleOrNull()
+
+                if (n == null || n <= 0 || a == null) {
+                    resultText = "Ошибка: проверьте корректность введенных данных (n должно быть > 0)."
+                    return@Button
+                }
+
+                resultText = "Данные корректны, расчет готов к реализации."
             },
             modifier = Modifier.fillMaxWidth()
         ) {
